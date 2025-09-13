@@ -1,0 +1,223 @@
+body {
+  color: #ffc266;
+  font-family: "Roboto", sans-serif;
+}
+
+.theme {
+  font-family: "Russo One";
+  color: rgb(126, 126, 126);
+  background-color: black;
+  text-align: center;
+  text-decoration: none;
+}
+
+.theme :hover {
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(228, 228, 228);
+}
+.logo {
+  margin-left: 25%;
+  margin-top: 200px;
+}
+
+.animate__pulse {
+  position: fixed;
+}
+
+.vk {
+  width: 7%;
+  float: left;
+}
+.vk :hover {
+  cursor: pointer;
+}
+
+.ig {
+  width: 7%;
+  float: right;
+}
+
+.ig :hover {
+  cursor: pointer;
+}
+
+#test {
+  transform: rotate(0deg)
+    /* Вертит элемент, 0 грудусов - верх, 90, права и тд */ scale(0.8)
+    /* Изменение размера элемента, по умолчанию 1 */;
+
+  background-image: url(/img/rost.jpg);
+  color: rgb(0, 0, 0);
+
+  opacity: 0.5;
+  /* display: none; Элемент скрывается */
+}
+
+#test:hover {
+  transform: rotate(-360deg); /* Поворачивае на 45 грудов */
+  transition: 1s all; /* задаем время поворота в 1 секунду и анимируем весь элемент */
+
+  opacity: 1; /* ховер - наведение на элемент. При наведение на элемент прозрачность равняется 1, что означает - элемент непрозрачен */
+}
+
+#test1 {
+  transform: rotate(0deg)
+    /* Вертит элемент, 0 грудусов - верх, 90, права и тд */ scale(0.8)
+    /* Изменение размера элемента, по умолчанию 1 */;
+
+  background-image: url(/img/rost.jpg);
+  color: rgb(0, 0, 0);
+
+  opacity: 0.5;
+  /* display: none; Элемент скрывается */
+}
+
+#test1:hover {
+  transform: rotate(360deg); /* Поворачивае на 45 грудов */
+  transition: 1s all; /* задаем время поворота в 1 секунду и анимируем весь элемент */
+
+  opacity: 1; /* ховер - наведение на элемент. При наведение на элемент прозрачность равняется 1, что означает - элемент непрозрачен */
+}
+
+.row {
+  margin-right: 33%;
+}
+#myProgress {
+  width: 980px;
+  background-color: #d9d9f2;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+#myBar {
+  width: 0%;
+  height: 5px;
+  background-color: #ffc266;
+  border-radius: 10px;
+}
+
+.btn-action {
+  cursor: pointer;
+  padding-top: 10px;
+  width: 30px;
+}
+
+.btn-ctn,
+.infos-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.infos-ctn {
+  padding-top: 20px;
+}
+
+.btn-ctn > div {
+  padding: 5px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+  margin-left: 40px;
+}
+
+.btn-mute {
+  margin-left: 40px;
+}
+.btn-mute :hover {
+  cursor: pointer;
+}
+
+.infos-ctn > div {
+  margin-bottom: 8px;
+  color: #000000;
+
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  font-size: 30px;
+
+  font-style: oblique;
+}
+
+.first-btn {
+  margin-left: 3px;
+}
+
+.duration {
+  margin-left: 10px;
+}
+
+.title {
+  margin-left: 10px;
+  width: 210px;
+  text-align: center;
+}
+
+.player-ctn {
+  border-radius: 15px;
+  width: 1000px;
+  padding: 10px;
+  background-color: #c6e8ec7c;
+  margin: auto;
+  margin-top: 650px;
+  padding-bottom: 100px;
+}
+
+.playlist-track-ctn {
+  display: flex;
+  background-color: #c6e8ec4d;
+  margin-top: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.playlist-track-ctn > div {
+  margin: 10px;
+}
+.playlist-info-track {
+  width: 80%;
+}
+.playlist-info-track,
+.playlist-duration {
+  padding-top: 7px;
+  padding-bottom: 7px;
+
+  color: gray;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 28px;
+  pointer-events: none;
+  letter-spacing: 10px;
+}
+.playlist-ctn {
+  padding-bottom: 20px;
+}
+.active-track {
+  background: #c6e8eccc;
+  color: #ffc266 !important;
+  font-weight: bold;
+}
+
+.active-track > .playlist-info-track,
+.active-track > .playlist-duration,
+.active-track > .playlist-btn-play {
+  text-shadow: 0 0 2px rgb(255, 208, 0);
+  color: #000000;
+  font-family: "Roboto Condensed", sans-serif;
+  letter-spacing: 10px;
+  font-size: 30px;
+}
+
+.playlist-btn-play {
+  pointer-events: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.btn-play :hover {
+  cursor: pointer;
+}
+
+.fas {
+  color: #eafdea;
+
+  font-size: 20px;
+}

@@ -262,7 +262,7 @@
   <body>
     <!-- Background video -->
     <video class="background-video" autoplay loop muted>
-      <source src="1.webm" type="video/webm" />
+      <source src="/video/2.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -271,10 +271,6 @@
       <source src=".mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>-->
-    <audio id="background-audio" loop>
-      <source src="2.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
 
     <!-- Кнопка управления музыкой 
     <button
@@ -300,28 +296,6 @@
     >
       ⏸
     </button> -->
-
-    <script>
-      const audio = document.getElementById("background-audio");
-      const musicControl = document.getElementById("music-control");
-
-      // Логика управления музыкой
-      musicControl.addEventListener("click", () => {
-        if (audio.paused) {
-          audio.play();
-          musicControl.textContent = "⏸"; // Пауза
-        } else {
-          audio.pause();
-          musicControl.textContent = "▶"; // Воспроизведение
-        }
-      });
-    </script>
-    <script>
-      document.addEventListener("click", function () {
-        var audio = document.getElementById("background-audio");
-        audio.play(); // Воспроизведение музыки
-      });
-    </script>
 
     <!-- Content Section -->
     <div

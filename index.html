@@ -4,362 +4,131 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Madvedo`s Page</title>
-    <head>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-      />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
-        rel="stylesheet"
-      />
-    </head>
-    <style>
-      /* Стили для блока hider */
-      .hider {
-        background-color: rgba(0, 0, 0, 0.446); /* Черный фон */
-        padding: 20px; /* Отступы внутри блока */
-        font-family: Oswald, Helvetica, sans-serif;
-        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center; /* Выравнивание по центру */
-        align-items: center; /* Выравнивание по вертикали */
-        height: 1px; /* Установите нужную высоту */
-        width: 100%; /* Полная ширина блока */
-      }
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-      /* Стили для ссылки */
-      .welcome-link {
-        color: white; /* Белый текст */
-        text-decoration: none; /* Убираем подчеркивание */
-        font-size: 24px; /* Размер шрифта */
-        font-weight: bold; /* Жирный текст */
-        text-align: center;
-        transition: color 0.3s ease; /* Плавное изменение цвета при наведении */
-      }
+    <!-- Animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
-      /* Эффект при наведении на ссылку */
-      .welcome-link:hover {
-        color: #f0f0f0; /* Цвет при наведении */
-      }
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap"
+      rel="stylesheet"
+    />
 
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        min-height: 100vh; /* Высота всегда занимает весь экран */
-        position: relative;
-      }
-
-      .content {
-        margin-top: 300px;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-        gap: 20px;
-        z-index: 3;
-      }
-
-      /* Background video styling */
-      .background-video {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1;
-      }
-
-      .button-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-      }
-
-      .button {
-        width: 10vw;
-        height: 10vw;
-        max-width: 100px;
-        max-height: 100px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        padding: 0;
-        display: inline-block;
-        outline: none;
-        border-radius: 50%;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .button img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .button:hover {
-        transform: rotate(20deg) scale(1.5);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-      }
-
-      .button:active {
-        transform: rotate(0deg) scale(1); /* Возврат в исходное положение при клике */
-      }
-
-      .youtube-section {
-        margin-bottom: 10px;
-        border: 2px solid #fff; /* Белая рамка толщиной 2px */
-        border-radius: 10px; /* Закругленные углы (опционально) */
-        padding: 10px; /* Отступы внутри секции */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Тень для эффекта */
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .youtube-title {
-        width: 15vw;
-        max-width: 150px;
-        margin-bottom: 2vh;
-      }
-
-      .youtube-buttons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2vw;
-      }
-
-      .youtube-button {
-        width: 10vw;
-        height: 10vw;
-        max-width: 100px;
-        max-height: 100px;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        padding: 0;
-        display: inline-block;
-        outline: none;
-        border-radius: 50%;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .youtube-button img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .youtube-button:hover {
-        transform: rotate(-20deg) scale(0.8);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-      }
-
-      .youtube-button:active {
-        transform: rotate(0deg) scale(1); /* Возврат в исходное положение при клике */
-      }
-
-      .logo {
-        position: relative; /* Фиксирует элемент относительно родителя (body) */
-        bottom: 50px; /* Отступ от верхнего края страницы */
-
-        max-width: 1000px; /* Ограничиваем максимальную ширину */
-        height: auto; /* Сохраняем пропорции изображения */
-        display: flex;
-        justify-content: center; /* Горизонтальное выравнивание */
-        align-items: center; /* Вертикальное выравнивание */
-      }
-
-      @keyframes flash {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.5;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .button {
-          width: 15vw;
-          height: 15vw;
-        }
-
-        .youtube-section {
-          margin-bottom: 15px;
-        }
-
-        .button-container {
-          margin-bottom: 15px;
-          gap: 5px; /* Уменьшаем расстояние между кнопками */
-        }
-
-        .logo {
-          width: 30vw;
-        }
-
-        .youtube-title {
-          width: 20vw;
-        }
-
-        .youtube-button {
-          width: 15vw;
-          height: 15vw;
-        }
-      }
-
-      @media (max-height: 600px) {
-        body {
-          justify-content: flex-start; /* Сдвигаем элементы вверх, чтобы они влезали */
-        }
-
-        .youtube-section,
-        .button-container {
-          margin-bottom: 10px; /* Уменьшаем отступы */
-        }
-
-        .logo {
-          bottom: 5px; /* Поднимаем логотип ближе к контенту */
-          width: 25vw; /* Пропорциональный размер */
-        }
-      }
-
-      footer {
-        background-color: #f8f9fa00; /* Светлый фон для подвала */
-        padding: 10px 0;
-      }
-    </style>
+    <!-- Наш CSS -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
-
-  <div class="hider">
-    <a
-      href="txt.html"
-      target="_blank"
-      class="welcome-link animate__animated animate__pulse animate__infinite infinite animate__slower 3s"
-      >Добро пожаловать!</a
-    >
-  </div>
-
   <body>
-    <!-- Background video -->
-    <video class="background-video" autoplay loop muted>
+    <!-- Видео фон -->
+    <video class="background-video" autoplay loop muted playsinline>
       <source src="/video/2.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    <!-- Audio player 
-    <audio autoplay loop>
-      <source src=".mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>-->
+    <!-- Контент -->
+    <div class="content">
+      <!-- Фото со ссылкой -->
+      <div
+        class="profile-image animate__animated animate__fadeIn animate__delay-1s"
+      >
+        <a href="txt.html" target="_blank" rel="noopener noreferrer">
+          <img src="img/1.png" alt="Фото Madvedo" />
+        </a>
+      </div>
 
-    <!-- Кнопка управления музыкой 
-    <button
-      
-      id="music-control"
-      style="
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border: none;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        border-radius: 50%;
-        font-size: 20px;
-        cursor: pointer;
-        z-index: 1000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      "
-    >
-      ⏸
-    </button> -->
-
-    <!-- Content Section -->
-    <div
-      class="content animate__animated animate__bounceIn animate__delay-1s animate__slower 3s"
-    >
-      <!-- Buttons Section -->
-      <div class="button-container">
-        <a href="https://vk.com/b1gbearrr" target="_blank" class="button">
+      <!-- Соцсети -->
+      <div
+        class="button-container animate__animated animate__bounceIn animate__delay-2s"
+      >
+        <a
+          href="https://vk.com/b1gbearrr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button"
+        >
           <img src="vk-logo.png" alt="VK" />
         </a>
-        <a href="https://t.me/Art_Rbv" target="_blank" class="button">
+        <a
+          href="https://t.me/Art_Rbv"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button"
+        >
           <img src="2.png" alt="Telegram" />
         </a>
-        <a href="https://discord.gg/dnTkeVKvCa" target="_blank" class="button">
+        <a
+          href="https://discord.gg/dnTkeVKvCa"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button"
+        >
           <img src="3.png" alt="Discord" />
         </a>
-        <a href="https://pikabu.ru/@Madvedo" target="_blank" class="button">
-          <img src="pb.png" alt="Discord" />
+        <a
+          href="https://pikabu.ru/@Madvedo"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button"
+        >
+          <img src="pb.png" alt="Pikabu" />
         </a>
         <a
           href="https://www.twitch.tv/madvedo_airbow"
           target="_blank"
+          rel="noopener noreferrer"
           class="button"
         >
-          <img src="tw.png" alt="Discord" />
+          <img src="tw.png" alt="Twitch" />
         </a>
       </div>
 
-      <!-- YouTube Section -->
+      <!-- YouTube -->
       <div
-        class="youtube-section animate__animated animate__bounceIn animate__delay-3s animate__slower 3s"
+        class="youtube-section animate__animated animate__bounceIn animate__delay-3s"
       >
         <img src="yt.png" alt="Я на YouTube:" class="youtube-title" />
         <div class="youtube-buttons">
           <a
             href="https://www.youtube.com/@B1gBeArrr"
             target="_blank"
+            rel="noopener noreferrer"
             class="youtube-button"
           >
-            <img src="liv1.png" alt="YouTube" />
+            <img src="liv1.png" alt="YouTube канал B1gBeArrr" />
           </a>
           <a
             href="https://www.youtube.com/@madvedo_mus7882"
             target="_blank"
+            rel="noopener noreferrer"
             class="youtube-button"
           >
-            <img src="mus.png" alt="Another YouTube" />
+            <img src="mus.png" alt="Музыкальный канал" />
           </a>
           <a
             href="https://www.youtube.com/@madvedoairbow2113"
             target="_blank"
+            rel="noopener noreferrer"
             class="youtube-button"
           >
-            <img src="gam1.png" alt="Another YouTube" />
+            <img src="gam1.png" alt="Игровой канал" />
           </a>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <img
+        class="logo animate__animated animate__heartBeat animate__infinite infinite animate__slower 3s"
+        src="Madvedo.png"
+        alt="Logo"
+      />
+    </footer>
   </body>
-  <footer>
-    <img
-      class="logo animate__animated animate__heartBeat animate__infinite infinite animate__slower 3s"
-      src="Madvedo.png"
-      alt="Logo"
-    />
-  </footer>
 </html>

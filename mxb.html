@@ -1,93 +1,114 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
     <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik+Glitch&family=Stalinist+One&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Stalinist+One&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/a062562745.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik+Glitch&family=Russo+One&family=Stalinist+One&display=swap"
-      rel="stylesheet"
-    />
-    <script src="jquery-1.11.3.min.js"></script>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
     <title>MXB</title>
     <link rel="stylesheet" href="style.css" media="all" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
+    <script
+      src="https://kit.fontawesome.com/a062562745.js"
+      crossorigin="anonymous"
+    ></script>
 
     <style>
-      * {
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+      body {
         margin: 0;
-        padding: 0;
+        background: black;
+        color: white;
+        font-family: "Roboto", sans-serif;
+        overflow: hidden;
       }
 
       .video {
         z-index: -10;
-        -o-object-fit: cover;
         object-fit: cover;
         position: fixed;
         width: 100%;
         height: 100%;
+        min-width: 100%;
+        min-height: 100%;
         top: 0;
         left: 0;
       }
 
+      /* Контейнер для кнопки + мини-контролов внизу */
+      .bottom-controls {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 1000;
+      }
+
+      #openPlayerBtn {
+        padding: 8px 16px;
+        background: #111;
+        color: #fff;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      #openPlayerBtn:hover {
+        background: #333;
+      }
+
+      .mini-controls {
+        display: inline-flex;
+        gap: 8px;
+      }
+
+      .mini-controls button {
+        background: transparent;
+        border: none;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+      }
+
+      .mini-controls button img {
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+        pointer-events: none;
+      }
+
+      .mini-controls button:hover {
+        transform: scale(1.2);
+      }
+
+      /* Плеер */
       .player-container {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background: rgba(34, 34, 34, 0.5);
+        background: rgba(34, 34, 34, 0.7);
         color: white;
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.6);
         padding: 15px;
-        z-index: 9999;
-        font-family: "Roboto", sans-serif;
         border-top: 3px solid #555;
         backdrop-filter: blur(5px);
-        border-radius: 5px;
+        border-radius: 5px 5px 0 0;
         transform: translateY(100%);
         transition: transform 0.5s ease;
+        z-index: 9999;
       }
 
       .player-container.open {
@@ -111,34 +132,27 @@
         color: #ccc;
         font-size: 20px;
         cursor: pointer;
-        transition: color 0.3s ease;
       }
 
       .close-btn:hover {
         color: #fff;
-        background-color: #555;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .track-list {
         list-style: none;
         padding: 0;
         margin: 10px 0;
-        max-height: 500px;
+        max-height: 400px;
         overflow-y: auto;
         text-align: center;
-        background: #555(246, 241, 241, 0.3);
-        backdrop-filter: blur(5px);
         border-radius: 5px;
+        scrollbar-width: none;
+      }
+      .track-list::-webkit-scrollbar {
+        display: none;
       }
 
       .track-list li {
-        justify-content: center;
         padding: 8px;
         cursor: pointer;
         border-bottom: 1px solid #333;
@@ -158,14 +172,12 @@
         flex-direction: column;
         align-items: center;
         gap: 10px;
-        margin-top: 15px;
       }
 
       .player-buttons {
         display: flex;
         justify-content: center;
         gap: 20px;
-        margin-top: 10px;
       }
 
       .player-buttons button {
@@ -180,244 +192,24 @@
         height: 30px;
       }
 
-      .controls button {
-        background: #444;
-        color: white;
-        border: none;
-        padding: 8px 12px;
-        margin: 0 5px;
-        font-size: 18px;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-
-      .controls button:hover {
-        background: #666;
-      }
-
-      .controls button img {
-        width: 24px;
-        height: 24px;
-        pointer-events: none;
-      }
-
       #seekSlider {
         width: 70%;
-        margin: 10px 0;
-      }
-
-      .glow-on-hover {
-        width: 220px;
-        height: 50px;
-        border: none;
-        outline: none;
-        color: #fff;
-        background: #111;
-        cursor: pointer;
-        position: relative;
-        z-index: 0;
-        border-radius: 10px;
-        opacity: 0;
-        animation: fadeIn 1s ease forwards;
-        animation-delay: 5s;
-      }
-
-      .glow-on-hover.fade-out {
-        animation: fadeOut 1s ease forwards;
-      }
-
-      @keyframes fadeOut {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-          pointer-events: none;
-        }
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          pointer-events: none;
-        }
-        to {
-          opacity: 1;
-          pointer-events: auto;
-        }
-      }
-
-      .glow-on-hover:before {
-        content: "";
-        background: linear-gradient(
-          45deg,
-          #ff0000,
-          #ff7300,
-          #fffb00,
-          #48ff00,
-          #00ffd5,
-          #002bff,
-          #7a00ff,
-          #ff00c8,
-          #ff0000
-        );
-        position: absolute;
-        top: -2px;
-        left: -2px;
-        background-size: 400%;
-        z-index: -1;
-        filter: blur(5px);
-        width: calc(100% + 4px);
-        height: calc(100% + 4px);
-        animation: glowing 20s linear infinite;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        border-radius: 10px;
-      }
-
-      .glow-on-hover:active {
-        color: #000;
-      }
-
-      .glow-on-hover:active:after {
-        background: transparent;
-      }
-
-      .glow-on-hover:hover:before {
-        opacity: 1;
-      }
-
-      .glow-on-hover:after {
-        z-index: -1;
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: #111;
-        left: 0;
-        top: 0;
-        border-radius: 10px;
-      }
-
-      @keyframes glowing {
-        0% {
-          background-position: 0 0;
-        }
-        50% {
-          background-position: 400% 0;
-        }
-        100% {
-          background-position: 0 0;
-        }
-      }
-
-      #openPlayerBtn {
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        margin: 30px auto;
-        display: block;
-      }
-
-      #openPlayerBtn.hidden {
-        opacity: 0;
-        transform: translateX(0);
-      }
-
-      BODY {
-        background: black;
-      }
-      A {
-        color: gray;
-        text-decoration: none;
-      }
-      A:visited {
-        color: gray;
-        text-decoration: none;
-      }
-      A:active {
-        color: gray;
-        text-decoration: none;
-      }
-
-      /* Стиль для контейнера с логотипом */
-      div.animate__animated.animate__pulse {
-        position: fixed; /* Фиксированное позиционирование */
-        top: 150px; /* Расположение от верхней части окна */
-        width: 100%; /* Ширина на всю страницу */
-        text-align: center; /* Центрирование содержимого */
-        z-index: -1;
-      }
-
-      /* Стиль для логотипа */
-      .logo {
-        width: 50%; /* Сохраняем размер логотипа */
-        margin: 0 auto; /* Центрирование логотипа */
-      }
-
-      #openPlayerBtn {
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        margin: 30px auto;
-        display: block;
-      }
-
-      #openPlayerBtn.hidden {
-        opacity: 0;
-        pointer-events: none; /* Отключаем события мыши для скрытой кнопки */
       }
     </style>
   </head>
   <body>
-    <header></header>
-
     <audio id="backgroundAudio"></audio>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const tracks = [
-          { title: "Aritmia", src: "audio/0. Aritmia.mp3" },
-          { title: "Поднимайся вновь", src: "audio/1. Поднимайся вновь.mp3" },
-          { title: "Зоя", src: "audio/2. Зоя.mp3" },
-          { title: "Сезон Осень", src: "audio/3. Сезон Осень.mp3" },
-          { title: "Doktor.A", src: "audio/4. Doktor.A.mp3" },
-          { title: "Лето", src: "audio/5. Лето.mp3" },
-          { title: "Вихри", src: "audio/6. Вихри.mp3" },
-          { title: "Привет", src: "audio/7. Привет.mp3" },
-          { title: "Рассвет", src: "audio/8. Рассвет.mp3" },
-          { title: "Холод", src: "audio/9. Холод.mp3" },
-          { title: "Margaret", src: "audio/10. Margaret.mp3" },
-        ];
 
-        const backgroundAudio = document.getElementById("backgroundAudio");
-
-        function playRandomBackgroundTrack() {
-          const randomIndex = Math.floor(Math.random() * tracks.length);
-          backgroundAudio.src = tracks[randomIndex].src;
-          backgroundAudio.play();
-        }
-
-        playRandomBackgroundTrack();
-
-        document
-          .getElementById("openPlayerBtn")
-          .addEventListener("click", function () {
-            backgroundAudio.pause();
-          });
-      });
-    </script>
-
-    <div style="text-align: center; margin: 30px">
-      <button id="openPlayerBtn" class="glow-on-hover">
-        🎵 Открыть треклист
-      </button>
-    </div>
-
-    <div
-      class="animate__animated animate__pulse animate__delay-5s animate__slower animate__infinite"
-    >
-      <img
-        class="logo animate__animated animate__fadeInDown animate__slower"
-        src="img/gd_logo12.-------------------"
-        width="50%"
-        alt=""
-      />
+    <!-- Нижние элементы -->
+    <div class="bottom-controls" id="bottomControls">
+      <button id="openPlayerBtn">🎵 Открыть треклист</button>
+      <div id="miniControls" class="mini-controls">
+        <button id="miniPrevBtn"><img src="img/prev.png" alt="Prev" /></button>
+        <button id="miniPlayPauseBtn">
+          <img src="img/play.png" alt="Play" />
+        </button>
+        <button id="miniNextBtn"><img src="img/next.png" alt="Next" /></button>
+      </div>
     </div>
 
     <video class="video" id="video" autoplay muted loop preload="auto">
@@ -425,6 +217,7 @@
       <source src="video/mxb.mp4" />
     </video>
 
+    <!-- Плеер -->
     <div id="playerModal" style="display: none" class="player-container">
       <div class="player-header">
         <span id="playerTitle">🎵 МЕДВЕДЬ ХЛЕБНУЛ ВИНА 🎵</span>
@@ -435,20 +228,13 @@
         <input type="range" id="seekSlider" />
         <div id="trackTime">0:00 / 0:00</div>
         <div class="player-buttons">
-          <button id="prevBtn">
-            <img src="img/prev.png" alt="Previous" />
-          </button>
+          <button id="prevBtn"><img src="img/prev.png" alt="Prev" /></button>
           <button id="playPauseBtn">
-            <img src="img/play.png" alt="Play/Pause" />
+            <img src="img/play.png" alt="Play" />
           </button>
-          <button id="nextBtn">
-            <img src="img/next.png" alt="Next" />
-          </button>
+          <button id="nextBtn"><img src="img/next.png" alt="Next" /></button>
         </div>
       </div>
-      <audio id="audioPlayer">
-        <source src="" type="audio/mpeg" />
-      </audio>
     </div>
 
     <script src="player.js"></script>

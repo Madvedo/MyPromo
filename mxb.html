@@ -195,6 +195,52 @@
       #seekSlider {
         width: 70%;
       }
+
+      /* 📱 Мобильные стили */
+      @media (max-width: 768px) {
+        body {
+          font-size: 18px; /* увеличиваем базовый текст */
+        }
+
+        #openPlayerBtn {
+          font-size: 20px;
+          padding: 12px 20px;
+        }
+
+        .mini-controls button {
+          width: 48px;
+          height: 48px;
+        }
+
+        .mini-controls button img {
+          width: 40px;
+          height: 40px;
+        }
+
+        .player-container {
+          font-size: 18px;
+          padding: 20px;
+        }
+
+        .track-list li {
+          font-size: 18px;
+          padding: 12px;
+        }
+
+        .player-buttons button img {
+          width: 50px;
+          height: 50px;
+        }
+
+        #seekSlider {
+          width: 90%;
+          height: 8px;
+        }
+
+        #trackTime {
+          font-size: 16px;
+        }
+      }
     </style>
   </head>
   <body>

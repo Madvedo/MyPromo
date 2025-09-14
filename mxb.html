@@ -242,6 +242,31 @@
         background: #333;
       }
 
+      .top-buttons {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 2000;
+      }
+
+      .top-buttons button {
+        background: #111;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        padding: 8px 14px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background 0.3s ease;
+      }
+
+      .top-buttons button:hover {
+        background: #333;
+      }
+
       /* Для устройств с узким экраном (телефоны, вертикальные планшеты) */
       @media (max-width: 1024px), (orientation: portrait) {
         body {
@@ -305,7 +330,7 @@
     </div>
 
     <!-- Постоянные кнопки -->
-    <div class="persistent-buttons">
+    <div class="top-buttons">
       <button id="stopBtn">🔇 Стоп</button>
       <button id="homeBtn">🏠 На главную</button>
     </div>

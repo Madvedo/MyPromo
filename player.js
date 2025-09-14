@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const audio = new Audio();
   let currentTrack = 0;
 
+  const stopBtn = document.getElementById("stopBtn");
+const homeBtn = document.getElementById("homeBtn");
+
   const playPauseBtn = document.getElementById("playPauseBtn");
   const trackList = document.getElementById("trackList");
   const seekSlider = document.getElementById("seekSlider");
@@ -141,6 +144,29 @@ document.addEventListener("DOMContentLoaded", function() {
   audio.addEventListener("timeupdate", updateTime);
   audio.addEventListener("loadedmetadata", updateTime);
   audio.addEventListener("ended", () => changeTrack(1));
+
+ // 🔇 Стоп — останавливает и фон, и плеер
+stopBtn.addEventListener("click", () => {
+  // Фоновый трек
+  if (backgroundAudio) {
+    backgroundAudio.pause();
+    backgroundAudio.currentTime = 0;
+  }
+
+  // Музыка из плеера
+  if (audio) {
+    audio.pause();
+    audio.currentTime = 0;
+    playPauseBtn.innerHTML = `<img src="img/play.png" alt="Play">`;
+    document.getElementById("miniPlayPauseBtn").innerHTML =
+      `<img src="img/play.png" alt="Play">`;
+  }
+});
+
+// 🏠 На главную
+homeBtn.addEventListener("click", () => {
+  window.location.href = "index.html";
+});
 
   renderTrackList();
 });

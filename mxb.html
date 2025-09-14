@@ -67,7 +67,7 @@
       }
 
       .mini-controls {
-        display: inline-flex;
+        display: none; /* ⬅️ было inline-flex — прячем до первого закрытия плейлиста */
         gap: 8px;
       }
 
@@ -212,9 +212,32 @@
       </div>
     </div>
 
-    <video class="video" id="video" autoplay muted loop preload="auto">
-      <source src="video/mxb.webm" />
-      <source src="video/mxb.mp4" />
+    <video class="video" autoplay muted loop playsinline>
+      <!-- Вертикальные разрешения (мобилки, планшеты) -->
+      <source
+        src="video/mxb2.webm"
+        type="video/webm"
+        media="(orientation: portrait)"
+      />
+      <source
+        src="video/mxb2.mp4"
+        type="video/mp4"
+        media="(orientation: portrait)"
+      />
+
+      <!-- Десктопы (горизонтальные разрешения) -->
+      <source
+        src="video/mxb.webm"
+        type="video/webm"
+        media="(orientation: landscape)"
+      />
+      <source
+        src="video/mxb.mp4"
+        type="video/mp4"
+        media="(orientation: landscape)"
+      />
+
+      Ваш браузер не поддерживает видео фон.
     </video>
 
     <!-- Плеер -->

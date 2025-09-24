@@ -101,15 +101,25 @@
         gap: 15px;
       }
 
+      /* базовый стиль */
       .button,
       .youtube-button {
         width: 80px;
         height: 80px;
-        border-radius: 50%;
         overflow: hidden;
         border: none;
         cursor: pointer;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      /* соцсети — круглые */
+      .button {
+        border-radius: 50%;
+      }
+
+      /* youtube — квадратные с мягкими углами */
+      .youtube-button {
+        border-radius: 12px;
       }
 
       .button img,
@@ -119,9 +129,14 @@
         object-fit: cover;
       }
 
-      .button:hover,
-      .youtube-button:hover {
+      /* эффекты при наведении */
+      .button:hover {
         transform: scale(1.2);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      }
+
+      .youtube-button:hover {
+        transform: scale(1.05) rotate(3deg);
         box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
       }
 
